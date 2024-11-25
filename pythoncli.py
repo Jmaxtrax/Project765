@@ -7,7 +7,6 @@ uri = "mongodb+srv://admin:testdatabasepswd@projectcluster.rmnrm.mongodb.net/?re
 db_name = "StudentCourses"
 collection_name = "student_courses"
 
-# Test DB Connection
 # Create a new client and connect to the server
 client = MongoClient(uri, server_api=ServerApi('1'))
 db = client[db_name]
@@ -24,10 +23,10 @@ def list_students_and_search():
             click.echo("No students in the database.")
             return
         
-        click.echo("\n--- All Students ---")
+        click.echo("\n=== All Students ===")
         for idx, student in enumerate(students, start = 1):
             click.echo(f"{idx}. ID: {student.get('student_id')}, Name: {student.get('name')}")
-        click.echo("--------------------")
+        click.echo("====================")
         
         # Prompt for student name
         name = click.prompt("Enter the name of the student you want to search for", type=str)
